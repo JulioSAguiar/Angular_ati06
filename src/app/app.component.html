@@ -1,0 +1,168 @@
+<div class="main">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Cadastre-se</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form 
+      action="#" 
+      id="main-form" 
+      #form="ngForm"
+      >
+        <div class="form-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Nome</mat-label>
+            <input 
+            [(ngModel)]="nome" 
+            #inputNome="ngModel" 
+            name="nome" 
+            type="text" 
+            required 
+            matInput
+            placeholder="Digite seu nome.."
+            >
+            <mat-error>
+              <span *ngIf="inputNome.errors?.['required']">Campo obrigatório!</span>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Sobrenome</mat-label>
+            <input 
+            [(ngModel)]="sobrenome" 
+            name="sobrenome" 
+            #inputSobrenome="ngModel" 
+            type="text" 
+            matInput
+            placeholder="Digite o seu sobrenome.."
+            >
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input 
+            [(ngModel)]="username" 
+            name="username" 
+            #inputUsername="ngModel" 
+            type="text" 
+            required 
+            matInput
+            placeholder="Digite o seu username..."
+            >
+            <mat-error>Campo obrigatório!</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="grow">
+            <mat-label>CPF</mat-label>
+            <input 
+            [(ngModel)]="cpf" 
+            name="nome"
+            #inputCPF="ngModel" 
+            type="cpf" 
+            required 
+            matInput
+            placeholder="Digite o seu cpf..."
+            >
+            <mat-error>Campo obrigatório!</mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="grow">
+            <mat-label>Telofone</mat-label>
+            <input 
+            [(ngModel)]="tel" 
+            name="telefone" 
+            type="tel" 
+            #inputTelefone="ngModel" 
+            required 
+            matInput
+            placeholder="Digite o seu Telefone...">
+            <mat-error>Campo obrigatório!</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field 
+          appearance="outline" 
+          class="grow"
+          >
+            <mat-label>Endereço</mat-label>
+            <input 
+            [(ngModel)]="end" 
+            name="endereco" 
+            type="text" 
+            #inputEndereco="ngModel" 
+            required matInput
+            placeholder="Digite o seu Endereço...">
+            <mat-error>Campo obrigatório!</mat-error>
+          </mat-form-field>
+
+          <mat-form-field 
+          appearance="outline" 
+          class="grow">
+            <mat-label>Complemento</mat-label>
+            <input 
+            [(ngModel)]="complemento" 
+            name="complemento" 
+            type="text" 
+            #inputCompleto="ngModel" 
+            matInput
+            placeholder="Ex: Estrada, Chácara, Condomínio, Apartamento...">
+          </mat-form-field>
+        </div>
+
+        <div class="form-row">
+          <mat-form-field appearance="outline" class="grow">
+            <mat-label>Senha</mat-label>
+            <input 
+            [(ngModel)]="senha" 
+            name="senha" 
+            type="password" 
+            #inputSenha="ngModel" 
+            required minlength="5" 
+            matInput
+            placeholder="Digite a sua senha"
+            >
+            <mat-error>Campo obrigatório!
+              <span *ngIf="inputSenha != inputConfirma">As senhas não são semelhantes </span>
+              <span *ngIf="inputSenha.errors?.['required']"> Está curto!</span>
+              <span *ngIf="inputSenha.errors?.['minlength']"> Precisa ter no mínimo 5 caracteres</span>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline" class="grow">
+            <mat-label>Confirmar senha</mat-label>
+            <input 
+            [(ngModel)]="confirmarsenha" 
+            name="confirmarsenha" 
+            type="password" 
+            #inputConfirma="ngModel" 
+            matInput
+            placeholder="Digite sua senha" 
+            required minlength="5"
+            >
+            <mat-error>Campo obrigatório!
+              <span *ngIf="inputSenha != inputConfirma">As senhas não são semelhantes</span>
+              <span *ngIf="inputSenha.errors?.['required']">Está curto!</span>
+              <span *ngIf="inputSenha.errors?.['minlength']">Precisa ter no mínimo 5 caracteres</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+        <div>
+          <button 
+          mat-raised-button 
+          type="submit" 
+          color="warn" 
+          class="btn"
+          [disabled]="form.invalid || validarSenha(inputSenha.value, inputConfirma.value)"
+          (click)="submit()"
+          >Enviar</button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

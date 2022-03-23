@@ -1,0 +1,29 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(360deg, aqua, purple, orange);
+}
+
+.mat-card {
+    background-color: lightcyan;
+}
+
+#main-form {
+    width: 700px;
+    
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grow {
+    width: 340px;
+}
+.btn {
+    width: 700px;
+}
